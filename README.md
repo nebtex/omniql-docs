@@ -1,12 +1,12 @@
 <img src="omni.png" />
-<hr>
+---
 
 omniql is opinionated way to create schema and defied commons operation over them, is intended to be useful  for large project where tems of diferent background converge,
 omniql schemas  can be used in any devices, for internal  or externall application, collaborate and create api, api versioning and export them to the world
 
 
-Keys aspect:
- - it uses cqs (Command and Query Responsibility Segregation) if you don't know what is this please read https://martinfowler.com/bliki/CQRS.html
+Key aspects:
+ - it uses cqrs (Command and Query Responsibility Segregation) if you don't know what is this please read https://martinfowler.com/bliki/CQRS.html
  - all the communication is planned to be  over nats or kafka or similar software (centrifuge for the frontend)
  - it should try to use the open api 3 spec https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md, like a guide when is possible
  - also we should use the google api design spec https://cloud.google.com/apis/design/
@@ -52,14 +52,8 @@ this is the spec for the version V1Alpha, it will change almost every time possi
 things that should be ready for the first alpha release
 
  - [V1Alpha.Application](V1Alpha/Application.md)
- - [V1Alpha.Enumeration](V1Alpha/Enumeration.md)
- - [V1Alpha.EnumerationItem](V1Alpha/EnumerationItem.md)
- - [V1Alpha.Structure](V1Alpha/Structure.md)
- - [V1Alpha.Table](V1Alpha/Table.md)
- - [V1Alpha.Resource](V1Alpha/Resource.md)
- - [V1Alpha.Command](V1Alpha/Command.md)
- - [V1Alpha.Query](V1Alpha/Query.md)
- - [V1Alpha.Component](V1Alpha/Component.md)
+
+
 
 
 #### V1Next
@@ -67,11 +61,14 @@ things that should be ready for the first alpha release
 things that would be  nice to have 
 
  - [V1Alpha.Branch](V1Next/branch.md)
- - [V1Alpha.Environment](V1Alpha/Environment.md)
  - [V1Alpha.Version](V1Alpha/Version.md)
  - [V1Alpha.Pipelines](V1Alpha/Pipeline.md) [planning]
  - [V1Alpha.PipelineBranch](V1Alpha/PipelineBranch.md) [planning]
  - [V1Alpha.Subscription](V1Alpha/Subscription.md) [planning]
+ - [V1Alpha.Environment](V1Alpha/Environment.md)
+ - [V1Alpha.Command](V1Alpha/Command.md)
+ - [V1Alpha.Query](V1Alpha/Query.md)
+ - [V1Alpha.Component](V1Alpha/Component.md)
 
 ### Omniql APp
    Omniql application on top of omniql definition that allow to manage resources by federation, orgs , team and users
@@ -91,3 +88,11 @@ things that would be  nice to have
 
 
 
+
+{% mermaid %}
+graph TD;
+  A-->B;
+  A-->C;
+  B-->D;
+  C-->D;
+{% endmermaid %}
