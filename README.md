@@ -2,7 +2,7 @@
 ---
 
 omniql is opinionated way to create schema and defied commons operation over them, is intended to be useful  for large project where tems of diferent background converge,
-omniql schemas  can be used in any devices, for internal  or externall application, collaborate and create api, api versioning and export them to the world
+omniql schemas  can be used in any devices, for internal  or externals application, collaborate and create api, api versioning and export them to the world
 
 
 Key aspects:
