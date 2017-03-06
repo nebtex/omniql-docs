@@ -143,7 +143,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <p><img src="omni.png"></p>
+<hr>
+
+<p>omniql is opinionated way to create schema and defied commons operation over them, is intended to be useful  for large project where tems of diferent background converge,
+omniql schemas  can be used in any devices, for internal  or externall application, collaborate and create api, api versioning and export them to the world</p>
+<p>Keys aspect:</p>
+<ul>
+<li>it uses cqs (Command and Query Responsibility Segregation) if you don&apos;t know what is this please read <a href="https://martinfowler.com/bliki/CQRS.html" target="_blank">https://martinfowler.com/bliki/CQRS.html</a></li>
+<li>all the communication is planned to be  over nats or kafka or similar software (centrifuge for the frontend)</li>
+<li>it should try to use the open api 3 spec <a href="https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md" target="_blank">https://github.com/OAI/OpenAPI-Specification/blob/3.0.0-rc0/versions/3.0.md</a>, like a guide when is possible</li>
+<li>also we should use the google api design spec <a href="https://cloud.google.com/apis/design/" target="_blank">https://cloud.google.com/apis/design/</a></li>
+<li>large inspired by kubernetes and swagger </li>
+</ul>
+<p>what omniql should offer:</p>
+<ul>
+<li>creation of schemas in a nice interface (api and ui)</li>
+<li>auto-generation of code for different programming languages and provide the tooling to do this</li>
+<li>auto-generation of entry docker containers that can handle well known patterns like crud, subscriptions, permissions</li>
+</ul>
+<p>plan:</p>
+<ul>
+<li>do an initial version, working</li>
+<li>build omniql on omniql</li>
+</ul>
+<p>oriented to:</p>
+<ul>
+<li>large organization that has many team of different backgrounds</li>
+<li>microservice infrastructures</li>
+<li>iot</li>
+<li>rapid development thanks to the auto component creation (this mean that omniql can create entery or partial application, with all the bussiness logic in it), manage github, repos and creation of docker containers </li>
+</ul>
+<p>Why is this project needed?</p>
+<p>is still difficult to create good schema, maintain track of them,  share between the team  with the current tech,
+if we have a good tool for create schemas, this will decrease the work needed to get things done, 
+in organization that worry about infrastructure evolution. more easy work, more people happy</p>
+<p>similar software:</p>
+<ul>
+<li>apache thirft</li>
+<li>swagger</li>
+<li>grpc</li>
+</ul>
+<h1 id="spec">spec</h1>
+<p>this is the spec for the version V1Alpha, it will change almost every time possible, nothing that is written here is the last word</p>
+<h2 id="resources">Resources</h2>
+<h4 id="v1alpha">V1Alpha:</h4>
+<p>things that should be ready for the first alpha release</p>
+<ul>
+<li><a href="V1Alpha/Application.md">V1Alpha.Application</a></li>
+<li><a href="V1Alpha/Enumeration.md">V1Alpha.Enumeration</a></li>
+<li><a href="V1Alpha/EnumerationItem.md">V1Alpha.EnumerationItem</a></li>
+<li><a href="V1Alpha/Structure.md">V1Alpha.Structure</a></li>
+<li><a href="V1Alpha/Table.md">V1Alpha.Table</a></li>
+<li><a href="V1Alpha/Resource.md">V1Alpha.Resource</a></li>
+<li><a href="V1Alpha/Command.md">V1Alpha.Command</a></li>
+<li><a href="V1Alpha/Query.md">V1Alpha.Query</a></li>
+<li><a href="V1Alpha/Component.md">V1Alpha.Component</a></li>
+</ul>
+<h4 id="v1next">V1Next</h4>
+<p>things that would be  nice to have </p>
+<ul>
+<li><a href="V1Next/branch.md">V1Alpha.Branch</a></li>
+<li><a href="V1Alpha/Environment.md">V1Alpha.Environment</a></li>
+<li><a href="V1Alpha/Version.md">V1Alpha.Version</a></li>
+<li><a href="V1Alpha/Pipeline.md">V1Alpha.Pipelines</a> [planning]</li>
+<li><a href="V1Alpha/PipelineBranch.md">V1Alpha.PipelineBranch</a> [planning]</li>
+<li><a href="V1Alpha/Subscription.md">V1Alpha.Subscription</a> [planning]</li>
+</ul>
+<h3 id="omniql-app">Omniql APp</h3>
+<p>   Omniql application on top of omniql definition that allow to manage resources by federation, orgs , team and users</p>
+<ul>
+<li><a href="V1Alpha/Federation.md">V1Alpha.Federation</a></li>
+<li><a href="V1Alpha/Organization.md">V1Alpha.Organization</a></li>
+<li><a href="V1Alpha/Team.md">V1Alpha.Team</a></li>
+<li><a href="V1Alpha/Users.md">V1Alpha.Users</a></li>
+</ul>
+<h2 id="code-generation">Code generation</h2>
 
                                 
                                 </section>
@@ -179,7 +254,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-03-06T03:38:59.224Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-06T04:17:28.942Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-03-06T04:31:46.776Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-06T04:32:17.128Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
