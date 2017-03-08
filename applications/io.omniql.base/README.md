@@ -19,11 +19,13 @@ this app contains the omniql predeclared identifiers, the basic building blocks 
 
 **8 bit**:
  
- | type  |              usage                 |
- | ----- | ---------------------------------  |
+ 
+ | Type |              Usage                 |
+ | ----- | --------------------------------- |
  | byte  | io.omniql.base.v1alpha/types/byte  |
  | ubyte | io.omniql.base.v1alpha/types/ubyte |
- | bool  | io.omniql.base.v1alpha/types/bool  |
+ | bool | io.omniql.base.v1alpha/types/bool  |
+
 
 **16 bit**: short, ushort
 
