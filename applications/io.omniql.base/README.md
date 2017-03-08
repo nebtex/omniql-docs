@@ -28,9 +28,27 @@ this app contains the omniql predeclared identifiers, the basic building blocks 
 
 **16 bit**: short, ushort
 
+| Type |              Usage                 |
+| ----- | --------------------------------- |
+| short  | io.omniql.base.v1alpha/types/short  |
+| ushort | io.omniql.base.v1alpha/types/ushort |
+
 **32 bit**: int, uint, float
 
+| Type |              Usage                 |
+| ----- | --------------------------------- |
+| int  | io.omniql.base.v1alpha/types/int  |
+| uint | io.omniql.base.v1alpha/types/uint |
+| float | io.omniql.base.v1alpha/types/float |
+
+
 **64 bit**: long, ulong, double
+
+| Type |              Usage                 |
+| ----- | --------------------------------- |
+| long  | io.omniql.base.v1alpha/types/long  |
+| ulong | io.omniql.base.v1alpha/types/ulong |
+| double | io.omniql.base.v1alpha/types/double |
 
 # Built-in non-scalar types:
 
