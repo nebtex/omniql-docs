@@ -35,10 +35,10 @@ Vector
 ## Field
 
 
-| Name | Description | Required | Schema | Default  |
-| -- | -- | -- | -- | -- |
-| name | field name, only support UpperCamelCase names | true | string | -- |
-| nonScalar | schema of the field | true | string | -- |
+| Name      | Description                        | Required | Schema | Default  |
+| --------  | ---------------------------------- | -------- | ------ | -------- |
+| name      | field name, only support UpperCamelCase names | true | string |   |
+| nonScalar | schema of the field                | true | string | |
 
 
 ```yaml
