@@ -18,8 +18,11 @@ this app contains the omniql predeclared identifiers, the basic building blocks 
 ## Built-in scalar types are (same as flatbuffers):
 
 **8 bit**: byte, ubyte, bool
+
 **16 bit**: short, ushort
+
 **32 bit**: int, uint, float
+
 **64 bit**: long, ulong, double
 
 # Built-in non-scalar types:
@@ -31,10 +34,12 @@ Vector
 
 ## Field
 
+
 | Name | Description | Required | Schema | Default  |
 | -- | -- | -- | -- | -- |
 | name | field name, only support UpperCamelCase names | true | string | -- |
 | nonScalar | schema of the field | true | string | -- |
+
 
 ```yaml
   name: CreationTime
