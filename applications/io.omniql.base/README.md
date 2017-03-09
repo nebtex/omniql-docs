@@ -1,8 +1,8 @@
 # io.omniql.base.v1alpha
 
-this app contains the omniql predeclared identifiers, the basic building blocks of any any omniql schema.
+this app contains the omniql predeclared identifiers, the basic building blocks of any omniql schema.
 
-# spec
+## spec
 
 - base should not depends of any other component(databases, pub/sub system, etc) nor any other application
 - is expected that definitions never change at all
@@ -11,20 +11,31 @@ this app contains the omniql predeclared identifiers, the basic building blocks 
 - for simplify the initial design spec, defaults will not be supported temporally, 
   this is intended to be addressed by type extensions and build pipelines
 
-### versioning 
+## versioning 
 
   - base does not support automatic versioning, so people should be careful changing this spec (in a perfect world the base app schema should never change) 
 
-## Built-in scalar types are (same as flatbuffers):
+# Types
 
-**8 bit**: byte, ubyte, bool
+> check our definition of types [here](../../definitions/types.md)
+
+## Built-in scalar types (same as flatbuffers):
+
+**8 bit** : byte, ubyte, bool
 **16 bit**: short, ushort
 **32 bit**: int, uint, float
 **64 bit**: long, ulong, double
 
 # Built-in non-scalar types:
 
-Vector
+## Vector
+
+
+
+| Name | Description | Required | Schema | Default  |
+| -- | -- | -- | -- | -- |
+| name | field name, only support UpperCamelCase names | true | string |  |
+| nonScalar | schema of the field | true | string | |
 
 , String, Field, Struct and Table
 
@@ -33,8 +44,8 @@ Vector
 
 | Name | Description | Required | Schema | Default  |
 | -- | -- | -- | -- | -- |
-| name | field name, only support UpperCamelCase names | true | string | -- |
-| nonScalar | schema of the field | true | string | -- |
+| name | field name, only support UpperCamelCase names | true | string |  |
+| nonScalar | schema of the field | true | string | |
 
 ```yaml
   name: CreationTime
