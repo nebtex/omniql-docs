@@ -15,13 +15,26 @@ this app contains the omniql predeclared identifiers, the basic building blocks 
 
   - base does not support automatic versioning, so people should be careful changing this spec (in a perfect world the base app schema should never change) 
 
-# type
 
-> check our definition of type [here](../../definitions/type.md)
+### Field
 
-## Built-in scalar type:
+> io.omniql.base.v1alpha/field
 
-> same as flatbuffers
+- field enable us to define complex data structure
+
+| Name      | Description                        | Required | Schema | Default  |
+| --------  | ---------------------------------- | -------- | ------ | -------- |
+| name      | field name,  | true | string |   |
+| type      | field type                | true | string | |
+| resource  | if this field is a reference to an resource | true | string | |
+| description | field short description | true | string | |
+| longDescription | field long description support markdown, mermaid, math-jax | true | string | |
+
+### Type
+
+> io.omniql.base.v1alpha/type
+
+scalar types same as flatbuffers
 
 **8 bit**:
  
@@ -56,26 +69,18 @@ this app contains the omniql predeclared identifiers, the basic building blocks 
 | ulong | io.omniql.base.v1alpha/type/ulong |
 | double | io.omniql.base.v1alpha/type/double |
 
-# Built-in non-scalar type:
 
 ## Vector
+
+> io.omniql.base.v1alpha/vector
+
 
 | Name      | Description                        | Required | Schema | Default  |
 | --------  | ---------------------------------- | -------- | ------ | -------- |
 | type      | any other type except vectors      | true     | string |          |
 
-Vector of any other type, nested vector are not supported
+Vector of any other type, table, struct or resource, nested vector are not supported
 
-## Field
-
-
-| Name      | Description                        | Required | Schema | Default  |
-| --------  | ---------------------------------- | -------- | ------ | -------- |
-| name      | field name,  | true | string |   |
-| type      | field type                | true | string | |
-| resource  | if this field is a reference to an resource | true | string | |
-| description | field short description | true | string | |
-| longDescription | field long description support markdown, mermaid, math-jax | true | string | |
 
 example a vector of ulong
 
@@ -93,6 +98,7 @@ example a vector of ulong
 
 ## Table
 
+> io.omniql.base.v1alpha/table
 
 Tables are the main way of defining objects in FlatBuffers, and consist of a name (here Monster) and a list of fields. Each field has a name, a type, and optionally a default value (if omitted, it defaults to 0 / NULL).
 
@@ -104,12 +110,14 @@ You may change field names and table names, if you're ok with your code breaking
 
 | Name      | Description                        | Required | Schema | Default  |
 | --------  | ---------------------------------- | -------- | ------ | -------- |
-| fields| vector of fields |  | [io.omniql.base.v1alpha/type/field] |  true |
+| fields| vector of fields |  | [io.omniql.base.v1alpha/field] |  true |
 
 
 ## Struct 
 
 Similar to a table, only now none of the fields are optional (so no defaults either), and fields may not be added or be deprecated. Structs may only contain scalars or other structs. Use this for simple objects where you are very sure no changes will ever be made (as quite clear in the example Vec3). Struct use less memory than tables and are even faster to access (they are always stored in-line in their parent object, and use no virtual table).
+
+> io.omniql.base.v1alpha/struct
 
 
 | Name      | Description                        | Required | Schema | Default  |
@@ -117,8 +125,9 @@ Similar to a table, only now none of the fields are optional (so no defaults eit
 | fields| vector of fields |  | [io.omniql.base.v1alpha/field] |  true | 
 
 
+## Enum
 
-## Enums
+> io.omniql.base.v1alpha/enum 
 
 Define a sequence of named constants, each with a given value, or increasing by one from the previous one. The default first value is 0. As you can see in the enum declaration, you specify the underlying integral type of the enum with : (in this case byte), which then determines the type of any fields declared with this enum type.
 
@@ -127,19 +136,20 @@ Typically, enum values should only ever be added, never removed (there is no dep
 | Name      | Description                        | Required | Schema | Default  |
 | --------  | ---------------------------------- | -------- | ------ | -------- |
 | type| enum type | true  | string |  [io.omniql.base.v1alpha/type/ubyte](#built-in-scalar-type) |
-| constants| list of constant | --  | [io.omniql.base.v1alpha/type/constant]|   |
+| constants| list of constant | --  | [io.omniql.base.v1alpha/type/enumConstant]|   |
 
-io.omniql.base.v1alpha/type/constant
-
+io.omniql.base.v1alpha/enum/constant
 
 | Name      | Description                        | Required | Schema | Default  |
 | --------  | ---------------------------------- | -------- | ------ | -------- |
 | name| constant name | true  | string |   |
-| description| | true  | string |  |
+| description| |   | string |  |
 | longDescription | support markdown|  | string |   |
 
 
-## Unions
+## Union
+
+> io.omniql.base.v1alpha/union 
 
 
 Unions share a lot of properties with enums, but instead of new names for constants, you use names of tables. You can then declare a union field, which can hold a reference to any of those type, and additionally a hidden field with the suffix _type is generated that holds the corresponding enum value, allowing you to know which type to cast to at runtime.
@@ -149,13 +159,14 @@ Unions are a good way to be able to send multiple message type as a FlatBuffer. 
 
 | Name      | Description                        | Required | Schema | Default  |
 | --------  | ---------------------------------- | -------- | ------ | -------- |
-| types | list of union types | --  | [io.omniql.base.v1alpha/type/constant]|   |
+| types | list of union types | --  | [io.omniql.base.v1alpha/type/unionType]|   |
 
-io.omniql.base.v1alpha/type/constant
+io.omniql.base.v1alpha/type/unionType
 
 
 | Name      | Description                        | Required | Schema | Default  |
 | --------  | ---------------------------------- | -------- | ------ | -------- |
-| name| constant name | true  | string |   |
-| description| | true  | string |  |
+| type |  application type | true  | string |   |
+| resource| | application resource  | string |  |
+| description| | | string |  |
 | longDescription | support markdown|  | string |   |
